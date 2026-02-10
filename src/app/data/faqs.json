@@ -7,5 +7,30 @@
   { "id": "especialidades", "question": "¿Qué especialidades médicas ofrecen?", "answer": "Contamos con medicina general, pediatría, ginecología, cardiología, dermatología y más." },
   { "id": "resultados", "question": "¿Cómo puedo obtener mis resultados de laboratorio?", "answer": "Puedes recogerlos en recepción o acceder a ellos a través de nuestro portal en línea con tu cuenta registrada." },
   { "id": "cancelar", "question": "¿Cómo cancelo o reprogramo una cita?", "answer": "Puedes cancelar o reprogramar llamando al número de atención o a través de nuestro portal en línea con tu cuenta registrada." },
-  {"id": "saludar", "question": "Hola, ¿cómo estás?", "answer": "¡Hola! Estoy aquí para ayudarte con cualquier pregunta que tengas sobre nuestros servicios médicos. ¿En qué puedo asistirte hoy?" }
+  
+  {"id": "saludar", "question": "Hola, ¿cómo estás?", "answer": "¡Hola! Estoy aquí para ayudarte con cualquier pregunta que tengas sobre nuestros servicios médicos. ¿En qué puedo asistirte hoy?" },
+
+  { "id": "horarios", "question": "¿Cuáles son los horarios de atención?", "answer": "Lunes a viernes 08:00 a 18:00, sábados 08:00 a 12:00." },
+  { "id": "agendar", "question": "¿Cómo agendo una cita médica?", "answer": "Puedes agendar por teléfono, en recepción o mediante nuestro portal en línea. Indica especialidad, motivo y preferencia de horario." },
+  { "id": "urgencias", "question": "¿Se atienden urgencias?", "answer": "Atendemos urgencias básicas. En casos graves, dirigirse al servicio de emergencias más cercano." },
+  { "id": "documentos", "question": "¿Qué documentos necesito para registrarme?", "answer": "Identificación oficial, comprobante de domicilio y datos del seguro si aplica." },
+  { "id": "seguros", "question": "¿La clínica acepta seguros privados?", "answer": "Aceptamos la mayoría de seguros privados. Consulta la lista actualizada en recepción." },
+  { "id": "especialidades", "question": "¿Qué especialidades médicas ofrecen?", "answer": "Contamos con medicina general, pediatría, ginecología, cardiología, dermatología y más." },
+  { "id": "resultados", "question": "¿Cómo puedo obtener mis resultados de laboratorio?", "answer": "Puedes recogerlos en recepción o acceder a ellos a través de nuestro portal en línea con tu cuenta registrada." },
+  { "id": "cancelar", "question": "¿Cómo cancelo o reprogramo una cita?", "answer": "Puedes cancelar o reprogramar llamando al número de atención o a través de nuestro portal en línea con tu cuenta registrada." },
+  { "id": "saludar", "question": "Hola, ¿cómo estás?", "answer": "¡Hola! Estoy aquí para ayudarte con cualquier pregunta que tengas sobre nuestros servicios médicos. ¿En qué puedo asistirte hoy?" },
+  
+ 
+  { "id": "psicologo", "question": "¿Puedo hablar con un psicólogo?", "answer": "Sí, contamos con psicólogos especializados. Puedes agendar una consulta de salud mental llamando al +34 912 345 678 o visitando recepción." },
+  { "id": "chequeos", "question": "¿Qué chequeos médicos preventivos debo hacerme?", "answer": "Recomendamos chequeos anuales incluyen: análisis de sangre, presión arterial, IMC, electrocardiograma (mayores de 40). Consulta con Medicina General." },
+  { "id": "nutricion", "question": "¿La clínica ofrece servicios de nutrición?", "answer": "Sí, contamos con nutricionistas especializados en control de peso y planes dietéticos personalizados. Llama para agendar." },
+  
+
+  { "id": "historial", "question": "¿Cómo puedo solicitar mi historial médico?", "answer": "Puedes solicitarlo presencialmente en recepción, por email a expedientes@clinica.com o por teléfono. Tiempo de procesamiento: 5 días hábiles." },
+  
+
+  { "id": "general_vs_internista", "question": "¿Cuál es la diferencia entre un médico general e internista?", "answer": "Médico General: realiza evaluación inicial y atiende problemas comunes. Internista: especialista en enfermedades internas complejas. Ambos pueden referirte a especialistas." },
+  { "id": "alergias_especialista", "question": "¿Para temas de alergias, a qué especialista debo acudir?", "answer": "Debes consultar con un Alergólogo. Te ayudará a identificar alérgenos y establecer un plan de tratamiento personalizado." },
+  { "id": "dermatologo", "question": "¿Cuándo debo consultar a un dermatólogo?", "answer": "Consulta a un Dermatólogo si tienes problemas de piel como acné, manchas, lunares, eccemas, quemaduras o cualquier cambio en la piel." }
+
 ]

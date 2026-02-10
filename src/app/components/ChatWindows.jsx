@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import MessageList from "./MessageList";
 import MessageInput from "./MessageInput";
+import SymptomDetector, { detectSymptom } from "../services/SymptomDetector";
 import { classifyMessage } from "../services/classifier";
 
 export default function ChatWindow() {

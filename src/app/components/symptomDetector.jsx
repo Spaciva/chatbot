@@ -28,26 +28,44 @@ const SPECIALTIES = [
   }
 ];
 
+// Función para remover tildes
+function removeTildes(text) {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Función para normalizar texto (sin tildes + minúsculas)
+function normalize(text) {
+  return removeTildes(text).toLowerCase();
+}
+
 export function detectSymptom(userInput) {
   if (!userInput || !userInput.trim()) {
     return null;
   }
 
-  const text = userInput.toLowerCase();
+  const normalizedInput = normalize(userInput);
 
-  const fuse = new Fuse(SPECIALTIES, {
+  // Crear array con especialidades normalizadas
+  const normalizedSpecialties = SPECIALTIES.map(spec => ({
+    ...spec,
+    keywords: spec.keywords.map(kw => normalize(kw))
+  }));
+
+  const fuse = new Fuse(normalizedSpecialties, {
     keys: ["keywords"],
     threshold: 0.3,
     ignoreLocation: true
   });
 
-  const results = fuse.search(text);
+  const results = fuse.search(normalizedInput);
 
   if (results.length === 0) {
     return null;
   }
 
-  return results[0].item;
+  // Retornar la especialidad original (con datos sin modificar)
+  const foundIndex = results[0].refIndex;
+  return SPECIALTIES[foundIndex];
 }
 
 export default function SymptomDetector({ userInput, onDetect }) {
@@ -57,5 +75,5 @@ export default function SymptomDetector({ userInput, onDetect }) {
     onDetect(specialty);
   }
 
-  return null; // No renderiza nada visualmente
+  return null;
 }

@@ -1,20 +1,26 @@
+"use client";
 import Fuse from "fuse.js";
 import specialties from "../data/specialties.json";
 import faqs from "../data/faqs.json";
 
+// Función para remover tildes
+function removeTildes(text) {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function normalize(text) {
-  return text.toLowerCase();
+  return removeTildes(text).toLowerCase();
 }
 
 function detectAlarm(text) {
   const alarms = [
     "dolor intenso en el pecho",
     "dificultad para respirar",
-    "pérdida de conciencia",
+    "perdida de conciencia",
     "sangrado abundante"
   ];
   const n = normalize(text);
-  return alarms.some(a => n.includes(a));
+  return alarms.some(a => normalize(a).includes(n) || n.includes(normalize(a)));
 }
 
 function findMatches(text) {
@@ -37,7 +43,7 @@ function findMatches(text) {
   // Si Fuse no encuentra, buscar exacto
   for (const spec of specialties) {
     for (const kw of spec.keywords) {
-      if (normalized.includes(kw.toLowerCase())) {
+      if (normalized.includes(normalize(kw))) {
         matches.push(spec);
         break;
       }
@@ -51,21 +57,22 @@ export async function classifyMessage(text) {
   const lower = normalize(text);
 
   // Responder a saludos
-  const saludos = ["hola", "buenos días", "buenas tardes", "buenas noches", "qué tal", "holi", "ola", "buenas"];
+  const saludos = ["hola", "buenos dias", "buenas tardes", "buenas noches", "que tal", "holi", "ola", "buenas"];
   if (saludos.some(s => lower.includes(s))) {
     return "¡Hola! Soy tu asistente de la clínica. ¿Cómo te encuentras hoy?";
   }
 
   // Responder FAQs simples
   for (const f of faqs) {
-    if (lower.includes(f.question.toLowerCase().replace(/[¿?]/g, ""))) {
+    const faqQuestion = normalize(f.question.replace(/[¿?]/g, ""));
+    if (lower.includes(faqQuestion)) {
       return f.answer;
     }
   }
 
   // Detectar alarma
   if (detectAlarm(text)) {
-    return "Detecto signos de alarma. Por favor acude a urgencias inmediatamente o llama a emergencias.";
+    return "🚨 URGENCIA MÉDICA DETECTADA 🚨\nPor favor acude a urgencias inmediatamente o llama a emergencias: 112\nNuestro equipo está disponible 24/7.";
   }
 
   const matches = findMatches(text);
